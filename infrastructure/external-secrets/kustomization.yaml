@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: external-secrets
 
 resources:
+  - namespace.yaml
   - cluster-role-binding.yaml
   - secretstore.yaml
   - service-account.yaml
