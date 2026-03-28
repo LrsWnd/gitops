@@ -7,3 +7,4 @@ data:
   url: https://argocd.larswenda.org
   admin.enabled: "true"
   exec.enabled: "true"
+  kustomize.buildOptions: --enable-helm
