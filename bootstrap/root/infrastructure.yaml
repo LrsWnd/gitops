@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/LrsWnd/gitops.git
-    targetRevision: main
+    targetRevision: init
     path: infrastructure
   destination:
     server: https://kubernetes.default.svc
