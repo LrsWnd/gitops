@@ -7,10 +7,15 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   project: default
-  source:
-    repoURL: https://github.com/LrsWnd/gitops.git
-    targetRevision: init
-    path: infrastructure/cert-manager
+  sources:
+    - repoURL: https://github.com/LrsWnd/gitops.git
+      targetRevision: init
+      path: infrastructure/cert-manager
+      valueFiles:
+          - $values/infrastructure/cert-manager/values.yaml
+    - repoURL: https://github.com/LrsWnd/gitops.git
+      targetRevision: init
+      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
