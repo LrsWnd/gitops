@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - cert-manager/app.yaml
-  - external-secrets/
+  - external-secrets/app.yaml
   - service-account.yaml
   - envoy/app.yaml
   - envoy/repo-secret.yaml
