@@ -5,3 +5,4 @@ resources:
   - cert-manager/app.yaml
   - external-secrets/app.yaml
   - service-account.yaml
+  - envoy/app.yaml
