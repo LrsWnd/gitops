@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
+    repoURL: https://charts.gateway.envoyproxy.io
     chart: gateway-helm
-    repoURL: oci://docker.io/envoyproxy
     targetRevision: v1.8.0
   destination:
     namespace: envoy-gateway-system
