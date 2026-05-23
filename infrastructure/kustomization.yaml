@@ -8,3 +8,4 @@ resources:
   - envoy/app.yaml
   - envoy/repo-secret.yaml
   - envoy/gateway-class.yaml
+  - envoy/gateway.yaml
