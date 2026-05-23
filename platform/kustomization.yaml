@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - argocd/application.yaml
+  - argocd/httproute.yaml
