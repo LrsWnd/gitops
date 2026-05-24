@@ -15,3 +15,4 @@ resources:
   - kube-prometheus-stack/app.yaml
   - longhorn/app.yaml
   - longhorn/httproute.yaml
+  - kube-prometheus-stack/httproutes.yaml
