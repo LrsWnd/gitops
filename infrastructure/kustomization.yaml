@@ -9,3 +9,5 @@ resources:
   - envoy/repo-secret.yaml
   - envoy/gateway-class.yaml
   - envoy/gateway.yaml
+  - external-secrrets/cloudflare-token-externalsecret.yaml
+  - external-secrrets/clusterissuer.yaml
