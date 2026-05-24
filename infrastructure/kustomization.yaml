@@ -13,4 +13,4 @@ resources:
   - cert-manager/clusterissuer.yaml
   - trivy/app.yaml
   - kube-prometheus-stack/app.yaml
-  - lobghorn/app.yaml
+  - longhorn/app.yaml
