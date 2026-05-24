@@ -11,3 +11,4 @@ resources:
   - envoy/gateway.yaml
   - cert-manager/cloudflare-token-externalsecret.yaml
   - cert-manager/clusterissuer.yaml
+  - trivy/app.yaml
