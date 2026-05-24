@@ -1,5 +1,7 @@
 serviceMonitor:
   enabled: true
+  labels:
+    app.kubernetes.io/instance: kube-prometheus-stack-prometheus
 
 trivy:
   ignoreUnfixed: true
