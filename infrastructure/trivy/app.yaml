@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 
 metadata:
-  name: trivy
+  name: trivy-operator
   namespace: argocd
 
   annotations:
@@ -11,10 +11,10 @@ spec:
   project: default
   sources:
     - repoURL: https://aquasecurity.github.io/helm-charts/
-      chart: trivy
-      targetRevision: 0.22.0
+      chart: trivy-operator
+      targetRevision: 0.32.1
       helm:
-        releaseName: trivy
+        releaseName: trivy-operator
         valueFiles:
           - $values/infrastructure/trivy/values.yaml
     - repoURL: https://github.com/LrsWnd/gitops.git
@@ -22,7 +22,7 @@ spec:
       ref: values
   destination:
     server: https://kubernetes.default.svc
-    namespace: trivy
+    namespace: trivy-system
   syncPolicy:
     automated:
       prune: true
