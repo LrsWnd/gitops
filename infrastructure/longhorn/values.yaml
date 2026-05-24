@@ -1,6 +1,7 @@
 defaultSettings:
   defaultReplicaCount: 1
   replicaSoftAntiAffinity: true
+  kubeletRootDir: /var/lib/rancher/k3s/agent/kubelet
 
 longhornManager:
   resources:
