@@ -14,3 +14,4 @@ resources:
   - trivy/app.yaml
   - kube-prometheus-stack/app.yaml
   - longhorn/app.yaml
+  - longhorn/httproute.yaml
