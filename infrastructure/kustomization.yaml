@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - cert-manager/app.yaml
+  - external-secrets/app.yaml
+  - service-account.yaml
+  - envoy/app.yaml
+  - envoy/repo-secret.yaml
+  - envoy/gateway-class.yaml
+  - envoy/gateway.yaml
+  - cert-manager/cloudflare-token-externalsecret.yaml
+  - cert-manager/clusterissuer.yaml
+  - trivy/app.yaml
+  - kube-prometheus-stack/app.yaml
+  - longhorn/app.yaml
+  - longhorn/httproute.yaml
+  - kube-prometheus-stack/httproutes.yaml
+  - kube-prometheus-stack/dashboards/trivy-dashboards.yaml
+  - kube-prometheus-stack/admin-external-secret.yaml

@@ -1,0 +1,22 @@
+global:
+  domain: argocd.larswenda.org
+configs:
+  params:
+    server.insecure: true
+  cm:
+    timeout.reconciliation: 30s
+    kustomize.buildOptions: --enable-helm
+controller:
+  replicas: 1
+repoServer:
+  replicas: 1
+server:
+  replicas: 1
+  service:
+    type: ClusterIP
+  ingress:
+    enabled: false
+applicationSet:
+  replicas: 1
+redis:
+  enabled: true

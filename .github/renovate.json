@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "config:best-practices"
+  ],
+
+  "argocd": {
+    "enabled": true
+  },
+
+  "helm-values": {
+    "enabled": true
+  },
+
+  "kubernetes": {
+    "enabled": true
+  },
+
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "longhorn",
+        "cert-manager",
+        "kube-prometheus-stack",
+        "argo-cd",
+        "envoy",
+        "external-secrets"
+      ],
+      "automerge": false
+    },
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "automerge": true
+    }
+  ]
+}

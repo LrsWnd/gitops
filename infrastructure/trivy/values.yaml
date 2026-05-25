@@ -1,0 +1,8 @@
+serviceMonitor:
+  enabled: true
+  labels:
+    release: kube-prometheus-stack
+trivy:
+  ignoreUnfixed: true
+operator:
+  metricsVulnIdEnabled: false
