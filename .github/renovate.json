@@ -21,7 +21,9 @@
         "longhorn",
         "cert-manager",
         "kube-prometheus-stack",
-        "argo-cd"
+        "argo-cd",
+        "envoy",
+        "external-secrets"
       ],
       "automerge": false
     },

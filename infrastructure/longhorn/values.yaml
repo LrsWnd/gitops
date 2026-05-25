@@ -2,18 +2,15 @@ defaultSettings:
   defaultReplicaCount: 1
   replicaSoftAntiAffinity: true
   kubeletRootDir: /var/lib/rancher/k3s/agent/kubelet
-
 longhornManager:
   resources:
     requests:
       cpu: 100m
       memory: 128Mi
-
 longhornDriver:
   resources:
     requests:
       cpu: 50m
       memory: 64Mi
-
 longhornUI:
   replicas: 1
