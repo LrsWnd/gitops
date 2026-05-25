@@ -1,0 +1,19 @@
+storageClasses:
+  - name: nfs-radarr
+    annotations:
+      storageclass.kubernetes.io/is-default-class: "true"
+    parameters:
+      server: 192.168.0.25
+      share: /mnt/user/cluster/radarr
+    reclaimPolicy: Retain
+    volumeBindingMode: Immediate
+    mountOptions:
+      - nfsvers=4.1
+  - name: nfs-sonarr
+    parameters:
+      server: 192.168.0.25
+      share: /mnt/user/cluster/sonarr
+    reclaimPolicy: Retain
+    volumeBindingMode: Immediate
+    mountOptions:
+      - nfsvers=4.1

@@ -18,3 +18,4 @@ resources:
   - kube-prometheus-stack/httproutes.yaml
   - kube-prometheus-stack/dashboards/trivy-dashboards.yaml
   - kube-prometheus-stack/admin-external-secret.yaml
+  - csi-driver-nfs/app.yaml
