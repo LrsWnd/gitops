@@ -1,10 +1,11 @@
-gateway:
-  enabled: true
-  parentRefs:
-    - name: shared-gateway
-      namespace: envoy-gateway-system
-  hostnames:
-    - seerr.larswenda.org
+route:
+  main:
+    enabled: true
+    parentRefs:
+      - name: shared-gateway
+        namespace: envoy-gateway-system
+    hostnames:
+      - seerr.larswenda.org
 config:
   persistence:
     storageClass: longhorn
