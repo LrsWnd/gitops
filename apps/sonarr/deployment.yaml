@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonarr
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: sonarr
+  template:
+    metadata:
+      labels:
+        app: sonarr
+    spec:
+      containers:
+        - image: 'lscr.io/linuxserver/sonarr:4.0.17'
+          imagePullPolicy: IfNotPresent
+          name: sonarr
+          ports:
+            - containerPort: 8989
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /config
+              name: sonarr-config
+            - mountPath: /media
+              name: sonarr-media-volume
+            - mountPath: /data/complete
+              name: sonarr-download-volume
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      volumes:
+        - name: sonarr-config
+          persistentVolumeClaim:
+            claimName: sonarr-config-pvc
+        - name: sonarr-media-volume
+          persistentVolumeClaim:
+            claimName: sonarr-media-pvc
+        - name: sonarr-download-volume
+          persistentVolumeClaim:
+            claimName: sonarr-download-pvc

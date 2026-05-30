@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sonarr-media-pv
+spec:
+  capacity:
+    storage: 100Ti
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs
+  mountOptions:
+    - hard
+    - nfsvers=4
+    - timeo=600
+    - retrans=2
+  nfs:
+    path: /mnt/user/media/Serien
+    server: 192.168.0.25
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarr-media-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Ti
+  volumeName: sonarr-media-pv
+  storageClassName: nfs
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sonarr-download-pv
+spec:
+  capacity:
+    storage: 100Ti
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs
+  mountOptions:
+    - hard
+    - nfsvers=4
+    - timeo=600
+    - retrans=2
+  nfs:
+    path: /mnt/user/downloads/complete
+    server: 192.168.0.25
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarr-download-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Ti
+  storageClassName: nfs
+  volumeName: sonarr-download-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarr-config-pvc
+  namespace: media
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: nfs
+  resources:
+    requests:
+      storage: 10Gi
