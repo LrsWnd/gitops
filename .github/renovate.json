@@ -3,17 +3,15 @@
     "config:best-practices"
   ],
 
-  "argocd": {
-    "enabled": true
-  },
-
-  "helm-values": {
-    "enabled": true
-  },
-
-  "kubernetes": {
-    "enabled": true
-  },
+  "enabledManagers": [
+    "argocd",
+    "helm-values",
+    "helmv3",
+    "kustomize",
+    "dockerfile",
+    "docker-compose",
+    "github-actions"
+  ],
 
   "packageRules": [
     {
@@ -22,8 +20,8 @@
         "cert-manager",
         "kube-prometheus-stack",
         "argo-cd",
-        "envoy",
-        "external-secrets"
+        "external-secrets",
+        "trivy-operator"
       ],
       "automerge": false
     },

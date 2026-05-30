@@ -1,19 +1,13 @@
 storageClasses:
-  - name: nfs-radarr
+  - name: nfs
     annotations:
       storageclass.kubernetes.io/is-default-class: "true"
     parameters:
       server: 192.168.0.25
-      share: /mnt/user/cluster/radarr
+      share: /mnt/user/cluster
+      subDir: ${pvc.metadata.namespace}-${pv.metadata.name}
     reclaimPolicy: Retain
     volumeBindingMode: Immediate
     mountOptions:
       - nfsvers=4.1
-  - name: nfs-sonarr
-    parameters:
-      server: 192.168.0.25
-      share: /mnt/user/cluster/sonarr
-    reclaimPolicy: Retain
-    volumeBindingMode: Immediate
-    mountOptions:
-      - nfsvers=4.1
+      - nolock
