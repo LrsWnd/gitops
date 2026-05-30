@@ -5,3 +5,6 @@ gateway:
       namespace: envoy-gateway-system
   hostnames:
     - seerr.larswenda.org
+config:
+  persistence:
+    storageClass: longhorn
