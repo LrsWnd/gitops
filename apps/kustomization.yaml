@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
   - sonarr/app.yaml
+  - radarr/app.yaml
