@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radarr
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: radarr
+  template:
+    metadata:
+      labels:
+        app: radarr
+    spec:
+      containers:
+      - image: linuxserver/radarr:6.1.1
+        name: radarr
+        ports:
+        - containerPort: 7878
+        volumeMounts:
+        - mountPath: /config
+          name: radarr-config
+        - mountPath: /media
+          name: radarr-media-volume
+        - mountPath: /data/complete
+          name: radarr-download-volume
+      volumes:
+      - name: radarr-config
+        persistentVolumeClaim:
+          claimName: radarr-config-pvc
+      - name: radarr-media-volume
+        persistentVolumeClaim:
+          claimName: radarr-media-pvc
+      - name: radarr-download-volume
+        persistentVolumeClaim:
+          claimName: radarr-download-pvc
