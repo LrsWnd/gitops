@@ -31,5 +31,8 @@
       ],
       "automerge": true
     }
-  ]
+  ],
+    "argocd": {
+      "managerFilePatterns": ["/\\.yaml$/"]
+    }
 }
