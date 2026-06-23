@@ -29,6 +29,17 @@ spec:
               name: sonarr-media-volume
             - mountPath: /data/complete
               name: sonarr-download-volume
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  curl -sf "http://localhost:8989/api/v3/health?apikey=${API_KEY}" \
+                  | grep -q '"type":"error"' && exit 1 || exit 0
+          envFrom:
+            - secretRef:
+                name: sonarr-api-token
       restartPolicy: Always
       schedulerName: default-scheduler
       volumes:

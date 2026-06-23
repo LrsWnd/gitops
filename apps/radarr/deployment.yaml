@@ -27,6 +27,17 @@ spec:
           name: radarr-media-volume
         - mountPath: /data/complete
           name: radarr-download-volume
+        livenessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - |
+                curl -sf "http://localhost:8989/api/v3/health?apikey=${API_KEY}" \
+                | grep -q '"type":"error"' && exit 1 || exit 0
+        envFrom:
+          - secretRef:
+              name: radarr-api-token
       volumes:
       - name: radarr-config
         persistentVolumeClaim:
