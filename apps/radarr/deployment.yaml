@@ -16,7 +16,7 @@ spec:
         app: radarr
     spec:
       containers:
-      - image: linuxserver/radarr:6.1.1
+      - image: linuxserver/radarr:6.3.0
         name: radarr
         ports:
         - containerPort: 7878
@@ -27,14 +27,6 @@ spec:
           name: radarr-media-volume
         - mountPath: /data/complete
           name: radarr-download-volume
-        livenessProbe:
-          exec:
-            command:
-              - /bin/sh
-              - -c
-              - |
-                curl -sf "http://localhost:8989/api/v3/health?apikey=${API_KEY}" \
-                | grep -q '"type":"error"' && exit 1 || exit 0
         envFrom:
           - secretRef:
               name: radarr-api-token

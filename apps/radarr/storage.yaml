@@ -10,9 +10,13 @@ spec:
   storageClassName: nfs
   mountOptions:
     - hard
-    - nfsvers=4
-    - timeo=600
-    - retrans=2
+    - nfsvers=4.2
+    - noatime
+    - nodiratime
+    - timeo=300
+    - retrans=5
+    - actimeo=1
+    - nconnect=4
   nfs:
     path: /mnt/user/media/Filme
     server: 192.168.0.25
@@ -44,9 +48,13 @@ spec:
   storageClassName: nfs
   mountOptions:
     - hard
-    - nfsvers=4
-    - timeo=600
-    - retrans=2
+    - nfsvers=4.2
+    - noatime
+    - nodiratime
+    - timeo=300
+    - retrans=5
+    - actimeo=1
+    - nconnect=4
   nfs:
     path: /mnt/user/downloads/complete
     server: 192.168.0.25
