@@ -13,3 +13,5 @@ spec:
     - backendRefs:
         - name: sonarr
           port: 8989
+      timeouts:
+        request: 300s
